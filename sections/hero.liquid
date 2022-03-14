@@ -1,0 +1,48 @@
+{{ 'section-hero.css' | asset_url | stylesheet_tag }}
+
+<div class="header-container">
+    <h1>
+        <img src="{{ 'hero-image.svg' | asset_url }}"/>
+        <span>vintage & thrift</span>
+    </h1>
+</div>
+<div class="hero-collections">
+    <div class="hero-collections__card-ctn">
+        {% for block in section.blocks %}
+            <a class="hero-collections__card" href="">
+                <div class=".hero-collections__card--bg" style="background-image: url({{ block.settings.image_bg | img_url: 'medium' }})"></div>
+                <div class=".hero-collections__card--hover" style="background-image: url({{ block.settings.image_hover | img_url: 'medium' }})"></div>
+                <h3 class="hero-collections__card-title">{{block.settings.collection.title | downcase}}</h3>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Hero",
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "limit": 3,
+        "settings": [
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": "Collection"
+          },
+          {
+            "id": "image_bg",
+            "type": "image_picker",
+            "label": "Image Background"
+          },
+          {
+            "id": "image_hover",
+            "type": "image_picker",
+            "label": "Image Hover"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
