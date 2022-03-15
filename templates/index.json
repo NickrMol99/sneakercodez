@@ -35,16 +35,9 @@
       ],
       "settings": {
       }
-    },
-    "16473529107d6e03f8": {
-      "type": "section-weekly-pick",
-      "settings": {
-        "collection": "weekly-picks"
-      }
     }
   },
   "order": [
-    "164726433310af776a",
-    "16473529107d6e03f8"
+    "164726433310af776a"
   ]
 }
